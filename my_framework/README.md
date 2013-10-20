@@ -1,6 +1,6 @@
 # MyFramework
 
-This project illustrates how to build a Sinatra-like framework based on Rack}
+This project illustrates how to build a Sinatra-like framework based on Rack
 
 ## Usage
 
