@@ -8,6 +8,8 @@ def get(route, &block)
   Routes[route] = block
 end
 
+alias :put :get
+
 class App
 
   def call(env)
