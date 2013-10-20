@@ -11,14 +11,13 @@ end
 class App
 
   def call(env)
-    route_handler = Routes[env['PATH_INFO']]
-    pp route_handler.inspect
-    pp env
-    if (route_handler)
-      answer = Rack::Request.new(env).instance_eval(&route_handler)
-    else 
-      answer = ''
-    end
+    req = Rack::Request.new(env)
+    route_handler = Routes[req.path_info]
+    answer = if (route_handler)
+               req.instance_eval(&route_handler)
+             else 
+              ''
+             end
     [200, {}, [ answer ] ]
   end
 
